@@ -1,0 +1,9 @@
+<sorted-set>
+  <rule entity="order" description="Rule 1" index="1">
+    <expression class="and">
+      <GreaterThan leftOpernad="price" rightOpernad="0"/>
+      <LessThan leftOpernad="price" rightOpernad="100000"/>
+    </expression>
+    <SetProratedValue index="0" value="price" maxUnit="30" actualUnit="days" variable="time_prorated_amount"/>
+  </rule>
+</sorted-set>

@@ -1,0 +1,11 @@
+<job code="J0001"  description="Generate invoice for customers">
+  <step index="1" code="STEP1" description="Prepare data">
+    <inputSql>select a.*,'order' entity from staging_table a</inputSql>
+    <OutputSql index="1" generatedKeyField="invoice_id">
+      <sql>insert into invoice values(nextval('id_seq'),nextval('invoice_number'),current_date,:customer_id)</sql>
+    </OutputSql>
+    <OutputSql index="2">
+      <sql>insert into invoice_line values(nextval('id_seq'),:invoice_id,:product_id,:price)</sql>
+    </OutputSql>
+  </step>
+</job>
